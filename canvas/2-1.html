@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+    	body{
+    		background: #ddd;
+    	}
+    	
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600">
+        
+    </canvas>
+    <script>
+        var canvas=document.getElementById("canvas"),
+        context=canvas.getContext("2d");
+
+        context.lineJoin="round";
+        context.lineWidth=30;
+
+        context.font='24px Helvetica';
+        context.fillText("click anywhere to erase",175,40);
+
+        context.strokeStyle="goldenrod";
+        context.fillStyle="rgba(0,0,255,0.5)";
+
+        context.strokeRect(75,100,200,200);
+        context.fillRect(325,100,200,200);
+
+        context.canvas.onmousedown=function(e){
+            context.clearRect(0,0,canvas.width,canvas.height);
+        }
+    </script>
+</body>
+</html>
