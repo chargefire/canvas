@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+    	body{
+    		background: #8b8ab3;
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow:hidden;
+    	}
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        @font-face {
+            font-family: 'iconfont';  /* project id 359844 */
+            src: url('fonts/iconfont.eot');
+            src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+            url('fonts/iconfont.woff') format('woff'),
+            url('fonts/iconfont.ttf') format('truetype'),
+            url('fonts/iconfont.svg#iconfont') format('svg');
+        }
+    	#close{
+            font-size:0px; /*使span中的文字不显示*/
+            cursor:pointer; /*使鼠标指针显示为手型*/
+            display:block;
+            width:100px;
+            height:100px;
+            line-height:100px;
+            border-radius:50%; /*使背景形状显示为圆形*/
+            background:#FFF;
+            color:#8b8ab3;
+            text-align:center;
+        }
+        .close::before{
+            content:"\e63c";
+            font-family: 'iconfont';
+            speak:none; /*使文本内容不能通过屏幕阅读器等辅助设备读取*/
+            font-size:48px;
+            display:block;
+        }
+        #close:hover{
+            -webkit-transform:rotate(360deg);
+            transform:rotate(360deg);
+            -webkit-transition:-webkit-transform 1s linear;
+            transition:transform 1s linear;
+        }
+    </style>
+</head>
+<body>
+    <input type="date" id="a1" name="a1">
+    <button onclick="run()">比较</button>
+    <script>
+        function run(){
+            var a1=new Date();
+            var a2=new Date(document.getElementById("a1").value);
+            var timeout=Number(1000*60*60*24*30*3);
+            var a1t=Number(a1.getTime());
+            var a2t=Number(a2.getTime());
+            console.log(a1t,a2t);
+            if(a1t<a2t){
+                console.log("已过期");
+            }else if(a1t-a2t<=timeout){
+                console.log("差3个月过期");
+            }
+        }
+    </script>
+</body>
+</html>

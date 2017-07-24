@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+    	body{
+    		background: #ddd;
+    	}
+    	
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600">
+        
+    </canvas>
+    <script>
+        var canvas=document.getElementById("canvas"),
+        context=canvas.getContext("2d"),
+        gradient=context.createLinearGradient(0,0,canvas.width,0);
+
+        gradient.addColorStop(0,"blue");
+        gradient.addColorStop(0.25,"white");
+        gradient.addColorStop(0.5,"purple");
+        gradient.addColorStop(0.75,"red");
+        gradient.addColorStop(1,"yellow");
+
+        context.fillStyle=gradient;
+        context.rect(0,0,canvas.width,canvas.height);
+        context.fill();
+    </script>
+</body>
+</html>
