@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <div>
+      <label for="jscode">Enter code:</label>
+      <input type="text" id="jscode">
+      <button>Submit code</button>
+    </div>
+
+    <p></p>
+  </body>
+
+    <script>
+      function Person(first, last, age, gender, interests) {
+
+      // 属性与方法定义
+
+      };
+
+      var person1 = new Person('Tammi', 'Smith', 32, 'neutral', ['music', 'skiing', 'kickboxing']);
+
+      Person.prototype.farewell = function() {
+      alert(this.name.first + ' has left the building. Bye for now!');
+}
+    </script>
+</html>

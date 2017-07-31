@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+    	body{
+    		background: #333;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-align: center;
+            height: 100vh;
+    	}
+    	body:before{
+        	content: '';
+		    display: inline-block;
+		    height: 100%;
+		    width: 0;
+		    vertical-align: middle;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        .ka{
+        	width:290px;
+        	height: 300px;
+        	border-radius: 5px;
+        	background: #fff;
+        	position: relative;
+        	display: inline-block;
+        	vertical-align: middle;
+        	margin:0 auto;
+            overflow: hidden;
+        }
+        .ka .member-image{
+        	position: absolute;
+            width: 100%;
+            transition: 0.4s;
+        }
+        .ka .member-image img{
+            width: 100%;
+            vertical-align: middle;
+            max-width: 100%;
+        }
+        .ka .more-info{
+            height: 0;
+            transition: 0.4s;
+            overflow:hidden;
+            z-index: 9;
+            position: relative;
+            background-color: #fff;
+        }
+        .ka h3{
+        	font-size: 24px;
+        	font-weight: normal;
+        	margin: 10px 0 0;
+        	text-transform: uppercase;
+            line-height: 35px;
+        }
+        .ka h5{
+        	font-size: 16px;
+        	font-weight: 300;
+        	margin: 0 0 15px;
+        	line-height: 22px;
+        }
+        .ka p{
+        	font-size: 14px;
+		    font-weight: 300;
+		    line-height: 22px;
+		    padding: 0 30px;
+		    margin-bottom: 10px;
+        }
+        .ka .social-touch {
+		}
+		.ka .social-touch a {
+		    display: inline-block;
+		    width: 27px;
+		    height: 26px;
+		    vertical-align: middle;
+		    margin: 0 2px;
+		    opacity: 0.7;
+		    border: 1px solid #000;
+		    transition: 0.3s;
+		}
+		.ka:hover .more-info {
+		    height: 218px;
+            transition: 0.4s;
+		}
+    </style>
+</head>
+<body>
+    <div class="ka">
+        <div class="member-info">
+            <h3>Sophia</h3>
+            <h5>ShowGilr</h5>
+        </div>
+    	<div class="member-image">
+			<img src="img/hover-ka/member_140x145.jpg">
+    	</div>
+    	<div class="more-info">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+			<div class="social-touch">
+            	<a class="fb-touch" href="#"></a>
+                <a class="tweet-touch" href="#"></a>
+                <a class="linkedin-touch" href="#"></a>
+            </div>
+    	</div>
+    </div>
+</body>
+</html>
