@@ -1,3 +1,5 @@
 https://github.com/koenbok/Framer的安装文件  github
 软件：atom
 http://www.jianshu.com/p/ec8d4246feb8   安装以及插件教程
+
+framer教程http://www.prototypingwithframer.com/
