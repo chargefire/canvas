@@ -1,0 +1,302 @@
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>X3 Demo Website</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/content/custom/favicon/favicon.png">
+    <script>
+      var css_counter = 0;
+      function imagevue_() {
+        css_counter++;
+        if (css_counter === 1)
+        imagevue();
+      };
+      function cssFail() {
+        css_counter--;
+        var l = document.createElement('link');
+        l.onload = imagevue_;
+        l.rel = 'stylesheet';
+        l.id = 'daylight';
+        l.href = 'css/mysite.css';
+        document.getElementsByTagName('head')[0].appendChild(l);
+      }</script>
+    <link rel="stylesheet" id="daylight" href="css/mysite.css" onerror="cssFail();">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i">
+    <style id="default-fonts">
+      <!-- body,h1,h2,h3,h4,h5,h6 {font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;} --></style>
+    <style id="logo">
+      <!-- .logo {font-size: 2.125em; padding: 1em 0; margin-top: 0em;}.logo> img {width: 230px; } --></style>
+    <meta class="foundation-data-attribute-namespace">
+    <meta class="foundation-mq-xxlarge">
+    <meta class="foundation-mq-xlarge">
+    <meta class="foundation-mq-large">
+    <meta class="foundation-mq-medium">
+    <meta class="foundation-mq-small">
+    <style></style>
+  </head>
+
+  <body class="fa-loading initializing topbar-center daylight topbar-fixed-up clear x3-page slug-index page-index" data-include="">
+    <div class="x3-loader" title="loading"></div>
+    <div class="sb-site-container">
+      <div>
+        <header class="header">
+          <div class="nav-wrapper">
+            <nav class="nav">
+              <div>
+                <a href="/" class="logo ">Photo Gallery</a></div>
+              <ul class="menu slim">
+                <li>
+                  <a href="/" class="needsclick">Home</a></li>
+                <li class="has-dropdown" data-options="mega:carousel;items:title,amount,preview,description;carousel_amount:3;">
+                  <a href="/galleries/" class="needsclick node">Galleries</a>
+                  <ul class="dropdown">
+                    <li data-options="mega:;title:Sweet Landscapes;description:A few images displaying in a vertical layout.;preview:./img/ridge_480w.jpg;amount:6;">
+                      <a href="/galleries/landscapes/" class="needsclick">Landscapes</a></li>
+                    <li data-options="mega:;title:Mother Nature;description:A few images displaying in a justified grid.;preview:./img/butterfly_480w.jpg;amount:20;">
+                      <a href="/galleries/nature/" class="needsclick">Nature</a></li>
+                    <li data-options="mega:;title:Femme Fatale;description:A few images displaying in a columns grid.;preview:./img/swirl_480w.jpg;amount:26;">
+                      <a href="/galleries/femme/" class="needsclick">Femme</a></li>
+                    <li data-options="mega:;title:Eternal Style;description:A few images displaying in a standard grid.;preview:./img/typewriter_480w.jpg;amount:9;">
+                      <a href="/galleries/style/" class="needsclick">Style</a></li>
+                    <li data-options="mega:;title:Food Lover;description:A few images displaying in a slideshow.;preview:./img/coffee-n-cookies_480w.jpg;amount:6;">
+                      <a href="/galleries/food/" class="needsclick">Food</a></li>
+                    <li data-options="mega:;title:Human Moods;description:A few images displaying in a carousel.;preview:./img/spectacles_480w.jpg;amount:9;">
+                      <a href="/galleries/human/" class="needsclick">Human</a></li>
+                  </ul>
+                </li>
+                <li class="has-dropdown" data-options="mega:list;title:Examples;description:A variety of page examples.;preview:./img/american-football_320w.jpg;">
+                  <a href="/examples/" class="needsclick node">Examples</a>
+                  <ul class="dropdown">
+                    <li class="has-dropdown" data-options="mega:;title:Gallery Layouts;description:Demonstrating several gallery layout examples.;preview:./img/blossom_320w.jpg;">
+                      <a href="/examples/gallery/" class="needsclick node">Gallery</a>
+                      <ul class="dropdown">
+                        <li data-options="mega:;title:Vertical Layout;description:Vertical gallery images in a narrow layout.;preview:./img/carneval_320w.jpg;">
+                          <a href="/examples/gallery/vertical/" class="needsclick">Vertical</a></li>
+                        <li data-options="mega:;title:Grid Layout;description:A basic grid layout, which gracefully responds to screen size.;preview:./img/city-lights_320w.jpg;">
+                          <a href="/examples/gallery/grid/" class="needsclick">Grid</a></li>
+                        <li data-options="mega:;title:Justified Layout;description:The justified layout scales images neatly into rows.;preview:./img/corn-field_320w.jpg;">
+                          <a href="/examples/gallery/justified/" class="needsclick">Justified</a></li>
+                        <li data-options="mega:;title:Columns Layout;description:The columns layout stacks images into columns.;preview:./img/crispy-chocolate_320w.jpg;">
+                          <a href="/examples/gallery/columns/" class="needsclick">Columns</a></li>
+                        <li data-options="mega:;title:Slideshow Layout;description:The slideshow layout comes with many settings.;preview:./img/earrings_320w.jpg;">
+                          <a href="/examples/gallery/slideshow/" class="needsclick">Slideshow</a></li>
+                        <li data-options="mega:;title:Carousel Layout;description:The carousel method displays multiple items in a carousel-like layout.;preview:./img/headphones_320w.jpg;">
+                          <a href="/examples/gallery/carousel/" class="needsclick">Carousel</a></li>
+                        <li data-options="mega:;title:Screenbox;description:Screenbox combined with the vertical layout, where each image is scaled to fit within viewport.;preview:./img/beach_320w.jpg;">
+                          <a href="/examples/gallery/screenbox/" class="needsclick">Screenbox</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-dropdown" data-options="mega:;title:Gallery Variations;description:Demonstrating a few more gallery layout variations.;preview:./img/rosy-red_320w.jpg;">
+                      <a href="/examples/variations/" class="needsclick node">Variations</a>
+                      <ul class="dropdown">
+                        <li data-options="mega:;title:Vertical Split;description:Using split-view in combination with the vertical layout.;preview:./img/puppy_320w.jpg;">
+                          <a href="/examples/variations/split/" class="needsclick">Vertical Split</a></li>
+                        <li data-options="mega:;title:Grid Tooltip;description:A small grid using 200 px column width and tooltips enabled.;preview:./img/face_320w.jpg;">
+                          <a href="/examples/variations/grid-tooltip/" class="needsclick">Grid Tooltip</a></li>
+                        <li data-options="mega:;title:Justified Comfy;description:A justified layout with larger images, more space, frames and captions.;preview:./img/straight-road_320w.jpg;">
+                          <a href="/examples/variations/justified/" class="needsclick">Justified Comfy</a></li>
+                        <li data-options="mega:;title:Columns Comfy;description:A columns layout with larger images, more space and frames.;preview:./img/turbines_320w.jpg;">
+                          <a href="/examples/variations/columns/" class="needsclick">Columns Comfy</a></li>
+                        <li data-options="mega:;title:Slideshow Cover;description:Slideshow layout in cover-mode, starts fullscreen, with dot-nav and crossfade transitions.;preview:./img/tracks_320w.jpg;">
+                          <a href="/examples/variations/slideshow/" class="needsclick">Slideshow Cover</a></li>
+                        <li data-options="mega:;title:Carousel Height;description:Optional Carousel layout limited by height, without cropping images.;preview:./img/felagi_320w.jpg;">
+                          <a href="/examples/variations/carousel/" class="needsclick">Carousel Height</a></li>
+                        <li data-options="mega:;title:Crop Images;description:Cropping images to specific aspect ratios is necessary for some layouts. It can also be used to create stylish layouts.;preview:./img/skies_320w.jpg;">
+                          <a href="/examples/variations/crop/" class="needsclick">Crop Images</a></li>
+                        <li data-options="mega:;title:Carousel Tabs;description:Use carousel tabs in combination with split-view to display gallery images in a linear context.;preview:./img/turntable_320w.jpg;">
+                          <a href="/examples/variations/carousel-tabs/" class="needsclick">Carousel Tabs</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-dropdown" data-options="mega:;title:Folder Layouts;description:Demonstrating several folder (album) layout examples.;preview:./img/wheat_320w.jpg;">
+                      <a href="/examples/folders/" class="needsclick node">Folders</a>
+                      <ul class="dropdown">
+                        <li data-options="mega:;title:Vertical Split Layout;description:Split the image and context into two side-by-side columns.;preview:./img/city-lights_320w.jpg;">
+                          <a href="/examples/folders/vertical-split/" class="needsclick">Vertical Split</a></li>
+                        <li data-options="mega:;title:Folders Grid;description:Using the grid, which gracefully responds to screen width.;preview:./img/layered-cake_320w.jpg;">
+                          <a href="/examples/folders/grid/" class="needsclick">Grid</a></li>
+                        <li data-options="mega:;title:Folders Justified;description:A basic example of the justified layout method applied to folders.;preview:./img/prickly_320w.jpg;">
+                          <a href="/examples/folders/justified/" class="needsclick">Justified</a></li>
+                        <li data-options="mega:;title:Folder Columns;description:Use the columns method to create a vertical masonry-style layout.;preview:./img/corn-field_320w.jpg;">
+                          <a href="/examples/folders/columns/" class="needsclick">Columns</a></li>
+                        <li data-options="mega:;title:Carousel Tabs;description:Use carousel tabs in combination with split-view to display child pages in a linear context.;preview:./img/sunflower-bee_320w.jpg;">
+                          <a href="/examples/folders/carousel-tabs/" class="needsclick">Carousel Tabs</a></li>
+                        <li data-options="mega:;title:Folders Grid List;description:Split grid layout combination.;preview:./img/madrid_320w.jpg;">
+                          <a href="/examples/folders/list/" class="needsclick">List</a></li>
+                      </ul>
+                    </li>
+                    <li class="has-dropdown" data-options="mega:;title:Features;description:A few examples, demonstrating specific features.;preview:./img/buffet_320w.jpg;">
+                      <a href="/examples/features/" class="needsclick node">Features</a>
+                      <ul class="dropdown">
+                        <li data-options="mega:;title:Sample Content;description:Various sample content examples.;preview:./img/fujifilm_320w.jpg;">
+                          <a href="/examples/features/sample/" class="needsclick">Sample Content</a></li>
+                        <li data-options="mega:;title:Blog Post;description:An example of a typical blog post.;preview:./img/toscana_320w.jpg;">
+                          <a href="/examples/features/post/" class="needsclick">Blog Post</a></li>
+                        <li data-options="mega:;title:Image Exif Tags;description:Click the images below to view photos with EXIF data tags.;preview:./img/thailand_320w.jpg;">
+                          <a href="/examples/features/exif/" class="needsclick">Image Exif</a></li>
+                        <li data-options="mega:;title:Image Links;description:Link to other pages or websites directly from your images. This feature may be useful for portfolio- or product pages.;preview:./img/flamepix_320w.jpg;">
+                          <a href="/examples/features/image-links/" class="needsclick">Image Links</a></li>
+                        <li data-options="mega:;title:Html Captions;description:It's cool to use some html in your image titles and descriptions!;preview:./img/spectacles_320w.jpg;">
+                          <a href="/examples/features/captions/" class="needsclick">Html Captions</a></li>
+                        <li data-options="mega:;title:Password Protect;description:This page is password protected with login guest/guest.;preview:./img/brooklyn-bridge_320w.jpg;">
+                          <a href="/examples/features/password/" class="needsclick">Password &nbsp;
+                            <i class="fa fa-lock"></i></a>
+                        </li>
+                        <li data-options="mega:;title:www.photo.gallery;description:Use the link setting to link- and redirect the page to any url.;preview:./img/playball_320w.jpg;">
+                          <a href="https://www.photo.gallery" class="needsclick no-ajax is-link" target="_blank">External Link &nbsp;
+                            <i class="fa fa-external-link-square"></i></a>
+                        </li>
+                        <li data-options="mega:;title:Popup Link;description:Using the link-feature combined with popup, allows you to open menu links in a popup interface.;preview:./img/preview_320w.jpg;">
+                          <a href="https://www.youtube.com/embed/G46ygBKsTZI" class="needsclick is-link" data-popup="">Popup Link &nbsp;
+                            <i class="fa fa-external-link-square"></i></a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="has-dropdown" data-options="mega:;title:Plugins;description:X3 offers a range of plugins that are available for pages, or in your content.;preview:./img/mountains_320w.jpg;">
+                      <a href="/examples/plugins/" class="needsclick node">Plugins</a>
+                      <ul class="dropdown">
+                        <li data-options="mega:;title:Intro Image;description:Attach an image as an introduction to the page.;preview:./img/background_320w.jpg;">
+                          <a href="/examples/plugins/intro-image/" class="needsclick">Intro Image</a></li>
+                        <li data-options="mega:;title:Intro Gradient;description:Use the intro-plugin to attach a solid color or gradient as introduction to the page.;preview:./img/antarctica_320w.jpg;">
+                          <a href="/examples/plugins/intro-gradient/" class="needsclick">Intro Gradient</a></li>
+                        <li data-options="mega:;title:Slideshow Intro;description:An example using the gallery slideshow set to &quot;use as intro&quot; for a nice start-page effect.;preview:./img/wayback_320w.jpg;">
+                          <a href="/examples/plugins/slideshow-intro/" class="needsclick">Slideshow Intro</a></li>
+                        <li data-options="mega:;title:Video Intro Plugin;description:The video-intro plugin allows you to add a video intro at top of page. This plugin can be useful to highlight special pages.;preview:./img/preview_320w.jpg;">
+                          <a href="/examples/plugins/video-intro/" class="needsclick">Video&nbsp;Intro</a></li>
+                        <li data-options="mega:;title:Image Comparison Slider;description:A content plugin to interactively compare two images visually.;preview:./img/preview_320w.jpg;">
+                          <a href="/examples/plugins/comparison-slider/" class="needsclick">Comparison&nbsp;Slider</a></li>
+                        <li data-options="mega:;title:Content Carousel Plugin;description:Use the content carousel plugin to add html elements in an interactive carousel.;preview:./img/hills_320w.jpg;">
+                          <a href="/examples/plugins/carousel/" class="needsclick">Content&nbsp;Carousel</a></li>
+                        <li data-options="mega:;title:Popup Links;description:Use the popup plugin in your content to include links that open in popup windows.;preview:./img/macbook_320w.jpg;">
+                          <a href="/examples/plugins/popup/" class="needsclick">Popup Links</a></li>
+                        <li data-options="mega:;title:Fotomoto Plugin;description:Integrate Fotomoto e-commerce seamlessly into your X3 website. [more info];preview:./img/preview_320w.jpg;">
+                          <a href="/examples/plugins/fotomoto/" class="needsclick">Fotomoto &nbsp;
+                            <i class="fa fa-shopping-cart"></i></a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li data-options="mega:data;items:contactform,hr,icon-buttons;width:320;">
+                  <a href="/contact/" class="needsclick">Contact</a>
+                  <div class="hide">
+                    <form data-abide="" class="contactform">
+                      <div>
+                        <input required="" type="text" name="name" placeholder="Name"></div>
+                      <div>
+                        <input required="" type="email" name="email" placeholder="Email"></div>
+                      <div>
+                        <textarea required="" name="message" placeholder="What's up?"></textarea>
+                      </div>
+                      <button type="submit">Send</button></form>
+                    <hr>
+                    <div class="menu-icon-buttons"></div>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main class="main" id="content">
+          <div class="module row">
+            <div class="clearfix context small-12 medium-10 large-8 small-centered columns separator title-normal narrower context-left-header-center">
+              <h1 class="title style-icon">
+                <span>X3 Demo Website</span></h1>
+              <h2 class="subheader">Welcome to the X3 photo gallery demo website.</h2>
+              <hr class="module-separator"></div>
+          </div>
+          <div class="module row">
+            <div class="clearfix folders small-12 small-centered columns layout-grid frame caption-bottom-left images title-small module-center">
+              <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 items">
+                <li>
+                  <section data-options="w:1600;h:891" id="Landscapes" aria-labelledby="landscapes-title" class="item">
+                    <a href="/galleries/landscapes/" class="item-link">
+                      <h2 id="landscapes-title" data-file="./img/ridge_320w.jpg" class="title">Sweet Landscapes</h2>
+                      <p>A few images displaying in a vertical layout.</p>
+                      <figure>
+                        <div class="img-link">
+                          <div class="image-container" style="padding-bottom:66.666666666667%;">
+                            <img data-src="./img/ridge_320w.jpg" alt="Sweet Landscapes"></div>
+                          <figcaption>
+                            <span class="amount">6 images</span></figcaption>
+                        </div>
+                      </figure>
+                    </a>
+                  </section>
+                </li>
+                <li>
+                  <section data-options="w:1600;h:1201" id="Nature" aria-labelledby="nature-title" class="item">
+                    <a href="/galleries/nature/" class="item-link">
+                      <h2 id="nature-title" data-file="./img/butterfly_320w.jpg" class="title">Mother Nature</h2>
+                      <p>A few images displaying in a justified grid.</p>
+                      <figure>
+                        <div class="img-link">
+                          <div class="image-container" style="padding-bottom:66.666666666667%;">
+                            <img data-src="./img/butterfly_320w.jpg" alt="Mother Nature"></div>
+                          <figcaption>
+                            <span class="amount">20 images</span></figcaption>
+                        </div>
+                      </figure>
+                    </a>
+                  </section>
+                </li>
+                <li>
+                  <section data-options="w:1600;h:900" id="Femme" aria-labelledby="femme-title" class="item">
+                    <a href="/galleries/femme/" class="item-link">
+                      <h2 id="femme-title" data-file="./img/swirl_w320.jpg" class="title">Femme Fatale</h2>
+                      <p>A few images displaying in a columns grid.</p>
+                      <figure>
+                        <div class="img-link">
+                          <div class="image-container" style="padding-bottom:66.666666666667%;">
+                            <img data-src="./img/swirl_320w.jpg" alt="Femme Fatale"></div>
+                          <figcaption>
+                            <span class="amount">26 images</span></figcaption>
+                        </div>
+                      </figure>
+                    </a>
+                  </section>
+                </li>
+              </ul>
+              <hr class="module-separator"></div>
+          </div>
+          <div class="module row">
+            <div class="clearfix gallery small-12 small-centered columns layout-slideshow frame hover images title-normal module-center" itemscope="" itemtype="http://schema.org/ImageGallery">
+              <a class="item img-link item-link" data-options="w:1600;h:1060" data-image="./img/yosemite.jpg" data-title="Yosemite" data-description="Yosemite national park." data-date="20 March 2017" href="/yosemite/" id="Yosemite" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                <span itemprop="caption description" data-image="./img/yosemite.jpg">
+                  <strong>Yosemite</strong>&nbsp; — &nbsp;Yosemite national park.</span></a>
+              <a class="item img-link item-link" data-options="w:1600;h:1066" data-image="./img/ocean.jpg" data-title="Ocean" data-description="Ocean color scene." data-date="20 March 2017" href="/ocean/" id="Ocean" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                <span itemprop="caption description" data-image="./img/ocean.jpg">
+                  <strong>Ocean</strong>&nbsp; — &nbsp;Ocean color scene.</span></a>
+              <a class="item img-link item-link" data-options="w:1600;h:1066" data-image="./img/prairie.jpg" data-title="Prairie" data-description="Plains of grass." data-date="20 March 2017" href="/prairie/" id="Prairie" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                <span itemprop="caption description" data-image="./img/prairie.jpg">
+                  <strong>Prairie</strong>&nbsp; — &nbsp;Plains of grass.</span></a>
+              <hr class="module-separator"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="icon-buttons hover-color hover-title">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#" title="Contact me"></a>
+      </div>
+      <p>© 2017
+        <a href="#">demo.imagevuex.com</a></p>
+      <p class="x3-footer-link">X3 Image Gallery CMS by
+        <a href="#">www.photo.gallery</a></p>
+    </footer>
+    <script>
+      function jsFail() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.onload = imagevue_;
+        s.src = 'js/mysite.js';
+        document.getElementsByTagName('head')[0].appendChild(s);
+      }
+    </script>
+    <script src="js/mysite.js" async="" onerror="jsFail()" onload=""></script>
+  </body>
+
+</html>
