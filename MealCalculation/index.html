@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
 			*, *:before, *:after{
 				margin:0;
@@ -20,37 +21,10 @@
 			    position: relative;
 			    cursor: auto;
 			}
-			.item{
-				margin-bottom: 10px;
-			}
-			.item label{
-				width: 100px;
-				display: inline-block;
-				text-align: right;
-				margin-right: 10px;
-			}
-			.item label + input[type="text"]{
-				width: 60px;
-				height: 32px;
-			}
 		</style>
 	</head>
 	<body>
-		<div id="runform">
-			
-		</div>
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script>
-		$(document).ready(function(){
-			var arr=new Array("冲","文","滢","俊","敏","游","老黄");
-			var $target=$("#runform");
-			var b="";
-			for(x in arr){
-				b+="<div class='item'><label>"+arr[x]+"</label><input type='text' name='a"+x+"'></div>";
-			}
-			b+="<div style='padding-left:110px;'><input type='checkbox'><label>餐盒费平分</label></div>"
-			$target.html(b);
-		})
-		</script>
+		<script src="js/main.js" onload="run()"></script>
 	</body>
 </html>
