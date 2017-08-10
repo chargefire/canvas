@@ -80,6 +80,7 @@ mysite_test = {
     screen_max: Math.max(screen.width, screen.height),
     screen_min: Math.min(screen.width, screen.height),
     window_w:document.body.clientWidth,
+    window_h:document.body.clientHeight,
     local_storage: function() {
         try {
             var a = window.localStorage;
@@ -175,25 +176,61 @@ function buildNav() {
     	
     });
     $ulmenu.children("li").hover(function(){
-    	var $this= $(this);
-    	// $this.offset().left
-    	var $children=$this.children("div.mega");
-    	if($children.length>0){
-    		$children.css({"left": -(mysite_test.window_w/2)+"px","opacity":1,"display":"block","transform": "scaleY(1),translateY(0px)"});
-    		$this.addClass("sfHover");
-    	}
 
+    	var $this= $(this);
+    	var $children=$this.children("div.mega");
+    	if($this.hasClass("has-dropdown")&&$children.length>0){
+    		var $left=-(mysite_test.window_w/2)-($this.offset().left-(mysite_test.window_w/2))+"px";
+    		console.log($left)
+    		$children.css({"left": $left,"opacity":1,"display":"block","transform": "scaleY(1),translateY(0px)"});
+    		// $children.css({"left": -(mysite_test.window_w/2)+"px","opacity":1,"display":"block","transform": "scaleY(1),translateY(0px)"});
+    	}
+    	else{
+    		$children.css({"opacity":1,"display":"block","transform": "scaleY(1),translateY(0px)"});
+    	}
+    	$this.addClass("sfHover");
     },function(){
     	var $this= $(this);
-    	var $children=$this.children("div");
+    	var $children=$this.children("div.mega");
     	if($children.length>0){
 			$children.css({"opacity":0,"display":"none","transform":"scaleY(0.98),translateY(0px)"});
-    		$this.removeClass("sfHover");
+    		
     	}
+    	$this.removeClass("sfHover");
+    });
+    $(".mega.carousel button:not(.close):first-child").on("click",function(){
+    	var owl = $("#nav-carousel").data('owlCarousel');
+    	owl.prev();
+    });
+    $(".mega.carousel button:not(.close):last-child").on("click",function(){
+    	var owl = $("#nav-carousel").data('owlCarousel');
+    	owl.next();
     });
   }
+  
 }
-buildNav();
+function scrollgraph(){
+	var $target=$mianC.children(".module").children(".gallery");
+	var $father=$target.parent();
+	var b="";
+	$target.children("a").each(function(){
+		var $this=$(this);
+		var $src=$this.attr("data-image");
+		var obj=analysis($this.attr("data-options"));
+		b+="<div class='item'><img class='lazyOwl' data-src='"+$src+"' style='width:"+mysite_test.window_w+"px;height:"+mysite_test.window_w/obj.w*obj.h+"px; left:0;top:-"+(mysite_test.window_w/obj.w*obj.h-mysite_test.window_h)/2+"px;'></div>";
+	});
+	$target.html(b).removeClass("images");
+	$father.removeClass("row");
+	$('.gallery').owlCarousel({
+    	items: 1,
+    	pagination:false,
+    	lazyLoad: true,
+    	rewindNav: true,
+    	autoPlay:true
+    });
+    $body.addClass("menu-absolute-20 slideshow-background no-pad");
+}
+
 //渲染判断
 //解析data-option里面的参数
 function analysis(d){
@@ -251,7 +288,7 @@ function render(o,s,traget){
             G.remove();
 		}
 		else if(s.indexOf("carousel") > 0 && traget.children("ul").length > 0){
-			b+="<div class='mega carousel full' style='"+J+"'><div class='owl-carousel'>";
+			b+="<div class='mega carousel full' style='"+J+"'><button style='visibility: visible; opacity: 0.5;'></button><button style='visibility: visible;'></button><button class='close'></button><div id='nav-carousel' class='owl-carousel'>";
 			var $item=o.items.split(",");
 			var $carousel_amount=o.carousel_amount;
 			var A = [2, 1],
@@ -275,46 +312,11 @@ function render(o,s,traget){
 				b+="</a></div>";
 			});
 			b+="</div></div>";
-
-
-
-			// b += "</div>";
-			// if (o.crop==undefined){ 
-			// 	i += i.indexOf("carousel") > 0 ? " full": " carousel full", b += "<div class=owl-carousel>";
-			// 	var A = [2, 1],
-   //          	O = 50;
-   //          }	
-   //          else {
-   //          	var A = o.crop.split(","),
-	  //           O = Number(A[1]) / Number(A[0]) * 100;
-	  //           traget.children("ul").children("li").each(function(h, i) {
-	  //               var c = $(this),
-	  //               a = o,
-	  //               e = c.children("a"),
-	  //               f = traget.html(),
-	  //               g = d.items.isEmpty() ? ["label", "preview", "description"] : o.items.split(",");
-	  //               b += e[0].outerHTML.replace(f + "</a>", "").replace('class="', 'class="img-link '),
-	  //               $.each(g,function(g, c) {
-	  //                   if ("title" == c) b += "<h2>" + a.title + "</h2>";
-	  //                   else if ("label" == c) b += "<h2>" + f + "</h2>";
-	  //                   else if ("preview" == c) b += '<div class="image-container anim-fast" style="padding-bottom: ' + O + '%"><img class=owl-lazy data-src="' + a.preview + '" /></div>';
-	  //                   else if ("description" == c) b += "<div class=description><p>" + a.description + "</p></div>";
-	  //                   else if ("date" == c) {
-	  //                       var e = a.date.indexOf("timeago:") > -1 ? " class=timeago": "",
-	  //                       d = a.date.indexOf("timeago:") > -1 ? a.date.split("ago:")[1] : a.date;
-	  //                       b += '<time itemprop=dateUpdated datetime="' + d + '"' + e + ">" + d + "</time>"
-	  //                   } else "amount" == c && (b += "<span>" + a.amount + " images</span>")
-	  //               }),
-	  //               b += "</a>"
-	  //           }),
-	  //           b += "</div>",
             traget.append(b);
             traget.children("ul").remove();
-            $('.owl-carousel').owlCarousel({
+            $('#nav-carousel').owlCarousel({
             	items: 3,
-            	lazyLoad: true,
-		        navigation: true,
-		        navigationText: ["<",">"]
+            	lazyLoad: true
 		    });
 		}
 		else if(s.indexOf("preview")){
@@ -323,6 +325,11 @@ function render(o,s,traget){
 	}
 
 }
+function imagevue(){
+	buildNav();
+	scrollgraph();
+	$("body").removeClass("initializing");
+  	$(".x3-loader").remove();	
+}
 
 
-$("body").removeClass("initializing");

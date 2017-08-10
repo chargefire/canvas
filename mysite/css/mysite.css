@@ -5124,6 +5124,10 @@ th.show-for-print {
 	position:relative;
 	z-index:1
 }
+.owl-carousel .owl-wrapper-outer{
+	width:100%;
+	overflow:hidden;
+}
 .owl-carousel .owl-stage {
 	position:relative;
 	-ms-touch-action:pan-Y
@@ -5295,16 +5299,16 @@ th.show-for-print {
 .owl-theme .owl-nav.disabled+.owl-dots {
 	margin-top:10px
 }
-.owl-theme .owl-dots {
+.owl-theme .owl-page {
 	text-align:center;
 	-webkit-tap-highlight-color:transparent
 }
-.owl-theme .owl-dots .owl-dot {
+.owl-theme .owl-pagination .owl-page {
 	display:inline-block;
 	zoom:1;
 	*display:inline
 }
-.owl-theme .owl-dots .owl-dot span {
+.owl-theme .owl-pagination .owl-page span {
 	width:10px;
 	height:10px;
 	margin:5px 7px;
@@ -5313,7 +5317,7 @@ th.show-for-print {
 	-webkit-backface-visibility:visible;
 	border-radius:30px
 }
-.owl-theme .owl-dots .owl-dot.active span,.owl-theme .owl-dots .owl-dot:hover span {
+.owl-theme .owl-pagination .owl-page.active span,.owl-theme .owl-pagination .owl-page:hover span {
 	background:#869791
 }
 .fa,.alert-box .close-x:before,.orbit-container .orbit-next>span,.orbit-container .orbit-prev>span,.button-down,#x3_plugin_buttons>button:after {
@@ -9507,10 +9511,10 @@ body[class*='topbar'] .mega.carousel .owl-controls {
 	position:absolute;
 	width:100%
 }
-body[class*='topbar'] .mega.carousel .owl-dot span {
+body[class*='topbar'] .mega.carousel .owl-page span {
 	background-color:#aeb5bc
 }
-body[class*='topbar'] .mega.carousel .owl-dot.active span,body[class*='topbar'] .mega.carousel .owl-dot:hover span {
+body[class*='topbar'] .mega.carousel .owl-page.active span,body[class*='topbar'] .mega.carousel .owl-page:hover span {
 	background-color:#fff
 }
 body[class*='topbar'] .mega.carousel button:not(.close) {
