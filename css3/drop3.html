@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+  div{
+    height: 40px;
+    line-height: 40px;
+    border:1px solid #ccc;
+    cursor: pointer;
+    margin-bottom:20px;
+    display: inline-block;
+  }
+</style>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+function allowDrop(ev)
+{
+  ev.preventDefault();
+}
+
+var srcdiv = null;
+function drag(ev,divdom)
+{
+    srcdiv=divdom;
+    ev.dataTransfer.setData("text/html",divdom.innerHTML);
+    ev.dataTransfer.setData("id",$(divdom).attr("data-id"));
+    ev.dataTransfer.setData("color",$(divdom).css("color"));
+}
+
+function drop(ev,divdom)
+{
+  ev.preventDefault();
+  if(srcdiv != divdom){
+    srcdiv.innerHTML = divdom.innerHTML;
+    $(srcdiv).css("color",$(divdom).css("color"));
+    divdom.innerHTML=ev.dataTransfer.getData("text/html");
+    $(divdom).css("color",ev.dataTransfer.getData("color"));
+    var b_arr=$(".sdsd");
+    console.log(1);
+    for(x in b_arr){
+      b_arr.eq(x).attr("data-id",Number(x)+1);
+    }
+    // console.log(ev.dataTransfer.getData("id"))
+  }
+}
+function bibi(){
+
+}
+</script>
+</head>
+<body>
+
+<div ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" class="sdsd" ondragstart="drag(event, this)" data-id="1" style="color:red">
+  divwadwad1!
+</div>
+<div  ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" class="sdsd"  ondragstart="drag(event, this)" data-id="2" style="color:blue">
+divww2!
+</div>
+<div ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" class="sdsd"  ondragstart="drag(event, this)" data-id="3" style="color:black">
+divwd3
+</div>
+
+</body>
+</html>

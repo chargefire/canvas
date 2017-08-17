@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+  div{
+    height: 40px;
+    line-height: 40px;
+    border:1px solid #ccc;
+    cursor: pointer;
+    margin-bottom:20px;
+    display: inline-block;
+  }
+</style>
+<script type="text/javascript">
+function allowDrop(ev)
+{
+  ev.preventDefault();
+}
+var srcdiv = null;
+var lastpo=null;
+var newpo=null;
+function drag(ev,divdom)
+{
+    srcdiv=divdom;
+    ev.dataTransfer.setData("text/html",divdom.innerHTML);
+    ev.dataTransfer.setData("id",divdom.getAttribute("data-id"));
+    ev.dataTransfer.setData("color",divdom.style.color);
+}
+function drop(ev,divdom)
+{
+  ev.preventDefault();
+  if(srcdiv != divdom){
+    lastpo=divdom.getAttribute("data-id");
+    newpo=ev.dataTransfer.getData("id");
+    srcdiv.innerHTML = divdom.innerHTML;
+    srcdiv.style.color=divdom.style.color;
+    divdom.innerHTML=ev.dataTransfer.getData("text/html");
+    divdom.style.color=ev.dataTransfer.getData("color");
+  }
+}
+function bibi(){
+
+}
+</script>
+</head>
+<body>
+
+<div ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" class="sdsd" ondragstart="drag(event, this)" data-id="1" style="color:red">
+  divwadwad1!
+</div>
+<div  ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" class="sdsd"  ondragstart="drag(event, this)" data-id="2" style="color:blue">
+divww2!
+</div>
+<div ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" class="sdsd"  ondragstart="drag(event, this)" data-id="3" style="color:black">
+divwd3
+</div>
+
+</body>
+</html>

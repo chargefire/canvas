@@ -217,10 +217,11 @@ function scrollgraph(){
 		var $this=$(this);
 		var $src=$this.attr("data-image");
 		var obj=analysis($this.attr("data-options"));
-		b+="<div class='item'><img class='lazyOwl' data-src='"+$src+"' style='width:"+mysite_test.window_w+"px;height:"+mysite_test.window_w/obj.w*obj.h+"px; left:0;top:-"+(mysite_test.window_w/obj.w*obj.h-mysite_test.window_h)/2+"px;'></div>";
+		b+="<div class='item'><img class='lazyOwl' data-src='"+$src+"' style='width:"+mysite_test.window_w+"px;height:"+mysite_test.window_w/obj.w*obj.h+"px; left:0;top:-"+(mysite_test.window_w/obj.w*obj.h-mysite_test.window_h)/2+"px;position:relative;'></div>";
 	});
-	$target.html(b).removeClass("images");
+	$target.html(b).removeClass("images").css({"width":mysite_test.window_w+"px","height":mysite_test.window_h+"px","overflow":"hidden"});
 	$father.removeClass("row");
+	$mianC.prepend($father);
 	$('.gallery').owlCarousel({
     	items: 1,
     	pagination:false,
@@ -328,8 +329,13 @@ function render(o,s,traget){
 function imagevue(){
 	buildNav();
 	scrollgraph();
+	footer();
 	$("body").removeClass("initializing");
   	$(".x3-loader").remove();	
 }
-
+//底部渲染 
+function footer(){
+	$height=$footerC.outerHeight();
+	$siteC.css("padding-bottom",$height);
+}
 
