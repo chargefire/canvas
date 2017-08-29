@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title></title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style: none
+        }
+    	.systembox{
+            display: block;
+            padding: 16px;
+        }
+        .systembox .listtop{
+            margin-bottom: 16px;
+        }
+        .systembox .listtop .modetitle{
+            line-height: 40px;
+            font-size: 24px;
+            color:#7460ee;
+            float: left;
+        }
+        .systembox .listtop .modetitle span{
+            font-size: 14px;
+            color: #78909c;
+            margin-left: 20px;
+        }
+        .systembox .listtop .modetitle .ti-star{
+            color:#ffbb44;
+        }
+        .systembox .listtop .modescreen{
+            float: right;
+            position: relative;
+            margin-left: 20px;
+        }
+        .systembox .listtop .modescreen .screenbtn{
+            padding:0 20px;
+            height: 40px;
+            line-height: 40px;
+            background: #27a9f8;
+            display: block;
+            border-radius: 4px;
+            font-size: 16px;
+            color:#fff;
+            cursor: pointer;
+        }
+        .systembox .listtop .modescreen .screenwrap{
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width:430px;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 0 3px rgba(0,0,0,0.1);
+            z-index: 2;
+            display: none;
+        }
+        .systembox .listtop .modescreen .screenwrap:after{
+            content: "";
+            width: 16px;
+            height: 16px;
+            transform: rotate(45deg);
+            position: absolute;
+            display: block;
+            background: #fff;
+            top:-8px;
+            right: 50px;
+        }
+        .systembox .screenwrap .wrap-title{
+            width: 100%;
+            outline: 0;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px 5px 0 0;
+            padding:0 12px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .systembox .screenwrap .wrap-title:before {
+            content: '';
+            display: inline-block;
+            position: relative;
+            width: 8px;
+            height: 8px;
+            line-height: 8px;
+            margin-right: 2px;
+            border-radius: 5px;
+            vertical-align: 0.07em;
+            background-color: #51d161;
+            background-image: -webkit-linear-gradient(left top, #70dc7a, #33c748);
+            background-image: linear-gradient(to right bottom, #70dc7a, #33c748);
+        }
+        .systembox .screenwrap .wrap-title .t{
+            font-size: 16px;
+        }
+        .systembox .screenwrap .wrap-title .b{
+            font-size: 16px;
+            float: right;
+        }
+        .systembox .screenwrap .wrap-title .b i{
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #000;
+        }
+        .systembox .screenwrap .wrap-title{
+
+        }
+        .systembox .screenwrap .wrap-content{
+            padding:16px 24px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .systembox .screenwrap .wrap-content hr{
+            border-color: #f7f3f3;
+            margin:12px 0;
+        }
+        .systembox .screenwrap .wrap-content .timeto{
+            display: block;
+            line-height: 32px;
+            font-size: 16px;
+        }
+        .systembox .screenwrap .wrap-foot{
+            width: 100%;
+            text-align: center;
+            padding-bottom:30px;
+        }
+        .systembox .screenwrap .wrap-foot button{
+            width:200px;
+        }
+        .systembox .systemtable{
+            overflow-x: auto;
+        }
+        .systembox .systemtable table{
+            min-height: .01%;
+            overflow-x: auto;
+            width: auto;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+        .systembox .systemtable tbody tr{
+            padding:0 32px;
+        }
+        .systembox .systemtable thead th{
+            color:#78909c;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+        .systembox .systemtable tbody td{
+            font-size: 14px;
+            line-height: 40px;
+            margin-bottom: 5px;
+        }
+        .systembox .systemtable tbody td i{
+            color:#ffbb44;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .systembox .systemtable tbody .nointer{
+            height: 5px;
+        }
+        .systembox .systemtable .td-lspacing{
+            display: block;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            background: #fff;
+            width: 24px;
+            height: 40px;
+        }
+        .systembox .systemtable .td-rspacing{
+            display: block;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background: #fff;
+            width: 24px;
+            height: 40px;
+        }
+        .systembox .systemtable .td-Mlspacing{
+            display: block;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            background: #fff;
+            width: 24px;
+            height: 66px;
+        }
+        .systembox .systemtable .td-Mrspacing{
+            display: block;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background: #fff;
+            width: 24px;
+            height: 66px;
+        }
+        .systembox .systemtable .autowidth{
+            background: #fff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            height: 26px;
+            line-height: 20px;
+
+        }
+        .systembox .systemtable .td-tsmall{
+            width:48px;
+            background: #fff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            height: 40px;
+        }
+        .systembox .systemtable .td-xsmall{
+            width:64px;
+            background: #fff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            height: 40px;
+        }
+        .systembox .systemtable .td-small{
+            width:100px;
+            background: #fff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            height: 40px;
+        }
+        .systembox .systemtable .td-middle{
+            width:160px;
+            background: #fff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            height: 40px;
+        }
+        .systembox .systemtable .td-large{
+            width:220px;
+            background: #fff;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            height: 40px;
+        }
+        .systembox .systemtable .SeeDetails{
+            color: #337ab7;
+            cursor: pointer;
+        }
+        .systembox .systemtable .progressline{
+            width:95%;
+            height:12px;
+            margin:13px 10px 13px 0;
+            background-color: rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .systembox .categoryMode{
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+        }
+        .systembox .categoryMode ul{
+            padding: 0;
+            margin:0 0 10px 0;
+            list-style: none;
+            font-size: 14px;
+            
+        }
+        .systembox .categoryMode .dropico{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin: 0 6px 3px 3px;
+            border-style: solid;
+            border-width: 6px 4px 0 4px;
+            vertical-align: middle;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            -webkit-transform:rotate(-90deg);
+            transform:rotate(-90deg);
+        }
+        .systembox .categoryMode .openw>span .dropico{
+            -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+        }
+        .systembox .categoryMode .openw > ul{
+            display: block;
+        }
+        .systembox .categoryMode .updateico{
+            margin-left: 4px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .systembox .categoryMode ul ul{
+            display: none;
+        }
+        .systembox .categoryMode ul li{
+            line-height: 32px;
+        }
+        .systembox .categoryMode ul li li{
+            width:calc(100% - 48px);
+            margin-left: 48px;
+        }
+        .systembox .categoryMode ul li .addCategory{
+            width:calc(100% - 48px);
+            margin-left: 48px;
+        }
+        .systembox .categoryMode .addCategory{
+            width:100%;
+            height: 32px;
+            font-size:16px;
+            line-height: 32px;
+            text-align: center;
+            position: relative;
+            border-radius: 3px;
+            background-color: #7ec1f8;
+            color: #fff;
+            border:1px solid #42a5f5;
+            cursor: pointer;
+            user-select: none;
+        }
+        .systembox .categoryMode .addCategory:hover{
+            background-color: #1690f3;
+        }
+        .systembox .categoryMode .addCategory:hover i:before,.systembox .categoryMode .addCategory:hover i:after{
+            background-color: #fff;
+        }
+        .systembox .categoryMode .addCategory i{
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            vertical-align: top;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .systembox .categoryMode .addCategory i:before{
+            content: "";
+            width:18px;
+            height: 3px;
+            display: block;
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+            background: #38a0f4;
+        }
+        .systembox .categoryMode .addCategory i:after{
+            content: "";
+            width:18px;
+            height: 3px;
+            display: block;
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            -webkit-transform:rotate(90deg);
+            transform:rotate(90deg);
+            background: #38a0f4;
+        }
+        .systembox .systemtable .progressline .active{
+            float: left;
+            width: 0;
+            height: 100%;
+            font-size: 12px;
+            line-height: 20px;
+            color: #fff;
+            text-align: center;
+            background-color: #ef5350;
+            -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+            -webkit-transition: width .6s ease;
+            -o-transition: width .6s ease;
+            transition: width .6s ease;
+            -webkit-background-size: 40px 40px;
+            background-size: 40px 40px;
+            background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+            -webkit-animation: progress-bar-stripes 2s linear infinite;
+            -o-animation: progress-bar-stripes 2s linear infinite;
+            animation: progress-bar-stripes 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var params={};
+        var str='<div class="systembox"><div class="categoryMode"><ul>';
+        $(document).ready(function(){
+            params={"0":{"sort_id":"1","sort_name":"第一大分类","parent_id":"0","levels":"1","orderz":"1","child":{"0":{"sort_id":"5","sort_name":"第一小分类","parent_id":"1","levels":"2","orderz":"1","child":{"0":{"sort_id":"6","sort_name":"第一小小分类","parent_id":"5","levels":"3","orderz":"1","child":null}}},"1":{"sort_id":"7","sort_name":"第二小分类","parent_id":"1","levels":"1","orderz":"2","child":null}}},"1":{"sort_id":"2","sort_name":"第二大分类","parent_id":"0","levels":"1","orderz":"2","child":{"0":{"sort_id":"8","sort_name":"第三小分类","parent_id":"2","levels":"1","orderz":"1","child":null}}},"2":{"sort_id":"3","sort_name":"第三大分类","parent_id":"0","levels":"1","orderz":"3","child":null},"3":{"sort_id":"4","sort_name":"第四大分类","parent_id":"0","levels":"1","orderz":"4","child":null}};
+            console.log(params);
+            var i=0;
+            $.each(params,function(i,j){
+                leves(params[i]);
+                i=0;
+            });
+            function leves(j){
+                var obj=j;
+                if(obj.child==null){
+                    str+='<li><span><i class="dropico"></i>'+obj.sort_name+'<i class="updateico ti-pencil" data-id="'+obj.sort_id+'" data-name="'+obj.sort_name+'" data-index="'+obj.orderz+'"></i></span><ul><div class="addCategory" data-attribute="'+obj.parent_id+'" data-name="" data-levels="'+obj.levels+'"><i></i>增加新分类</div></ul></li>';
+                    return true
+                }else{
+                    str+='<li><span><i class="dropico"></i>'+obj.sort_name+'<i class="updateico ti-pencil" data-id="'+obj.sort_id+'" data-name="'+obj.sort_name+'" data-index="'+obj.orderz+'"></i></span><ul>';
+                    $.each(obj.child,function(n,m){
+                        leves(obj.child[n]);
+                    })
+                    str+='<div class="addCategory" data-attribute="'+obj.parent_id+'" data-name="" data-levels="'+obj.levels+'"><i></i>增加新分类</div></ul></li>'
+                }
+            }
+            str+='<div class="addCategory" data-attribute="0" data-name="" data-levels="1"><i></i>增加新分类</div></ul></div></div>';
+            $("body").html(str);
+        })
+        $("body").on("click",".categoryMode .dropico",function(){
+            var $this=$(this).closest("li");
+            if($this.hasClass("openw")){
+                $this.removeClass("openw");
+            }else{
+                $this.addClass("openw");
+            }
+        });
+    </script>
+</body>
+</html>
