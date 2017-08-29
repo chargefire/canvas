@@ -399,25 +399,23 @@
         $(document).ready(function(){
             params={"0":{"sort_id":"1","sort_name":"第一大分类","parent_id":"0","levels":"1","orderz":"1","child":{"0":{"sort_id":"5","sort_name":"第一小分类","parent_id":"1","levels":"2","orderz":"1","child":{"0":{"sort_id":"6","sort_name":"第一小小分类","parent_id":"5","levels":"3","orderz":"1","child":null}}},"1":{"sort_id":"7","sort_name":"第二小分类","parent_id":"1","levels":"1","orderz":"2","child":null}}},"1":{"sort_id":"2","sort_name":"第二大分类","parent_id":"0","levels":"1","orderz":"2","child":{"0":{"sort_id":"8","sort_name":"第三小分类","parent_id":"2","levels":"1","orderz":"1","child":null}}},"2":{"sort_id":"3","sort_name":"第三大分类","parent_id":"0","levels":"1","orderz":"3","child":null},"3":{"sort_id":"4","sort_name":"第四大分类","parent_id":"0","levels":"1","orderz":"4","child":null}};
             console.log(params);
-            var i=0;
             $.each(params,function(i,j){
                 leves(params[i]);
-                i=0;
             });
             function leves(j){
                 var obj=j;
                 if(obj.child==null){
-                    str+='<li><span><i class="dropico"></i>'+obj.sort_name+'<i class="updateico ti-pencil" data-id="'+obj.sort_id+'" data-name="'+obj.sort_name+'" data-index="'+obj.orderz+'"></i></span><ul><div class="addCategory" data-attribute="'+obj.parent_id+'" data-name="" data-levels="'+obj.levels+'"><i></i>增加新分类</div></ul></li>';
+                    str+='<li><span><i class="dropico"></i>'+obj.sort_name+'<i class="updateico ti-pencil" data-id="'+obj.sort_id+'" data-index="'+obj.orderz+'"></i></span><ul><div class="addCategory" data-attribute="'+obj.sort_id+'"  data-levels="'+obj.levels+'"><i></i>增加新分类</div></ul></li>';
                     return true
                 }else{
-                    str+='<li><span><i class="dropico"></i>'+obj.sort_name+'<i class="updateico ti-pencil" data-id="'+obj.sort_id+'" data-name="'+obj.sort_name+'" data-index="'+obj.orderz+'"></i></span><ul>';
+                    str+='<li><span><i class="dropico"></i>'+obj.sort_name+'<i class="updateico ti-pencil" data-id="'+obj.sort_id+'" data-index="'+obj.orderz+'"></i></span><ul>';
                     $.each(obj.child,function(n,m){
                         leves(obj.child[n]);
                     })
-                    str+='<div class="addCategory" data-attribute="'+obj.parent_id+'" data-name="" data-levels="'+obj.levels+'"><i></i>增加新分类</div></ul></li>'
+                    str+='<div class="addCategory" data-attribute="'+obj.sort_id+'"  data-levels="'+obj.levels+'"><i></i>增加新分类</div></ul></li>'
                 }
             }
-            str+='<div class="addCategory" data-attribute="0" data-name="" data-levels="1"><i></i>增加新分类</div></ul></div></div>';
+            str+='<div class="addCategory" data-attribute="0" data-levels="1"><i></i>增加新分类</div></ul></div></div>';
             $("body").html(str);
         })
         $("body").on("click",".categoryMode .dropico",function(){
