@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<style type="text/css">
+			*{
+				padding:0; 
+				margin:0;
+			}
+			#con{
+				font-size: 24px;
+				color: #d9534f;
+				text-align: center;
+				line-height: 100vh;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="con"></div>
+		<script>
+			var con=document.getElementById("con");
+			var EndTime = new Date('2018/01/01 00:00:00');
+			var str="";
+			function GetRTime(){
+                var NowTime = new Date();
+                var t = EndTime.getTime() - NowTime.getTime();
+                var d = 0,h = 0,m = 0,s = 0;
+                if(t >= 0){
+                	d = Math.floor(t/1000/60/60/24);  
+	                h = Math.floor(t/1000/60/60%24);  
+	                m = Math.floor(t/1000/60%60);  
+	                s = Math.floor(t/1000%60);    
+                    str='距离新年还有'+d+'天'+h+'时'+m+'分'+s+'秒';
+                }else{
+                	str='你个坑货，新年已经过了';
+                	clearInterval(time);
+                }
+                con.innerHTML=str;
+            }
+            var time=setInterval("GetRTime()",0);
+		</script>
+	</body>
+</html>
